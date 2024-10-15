@@ -8,10 +8,12 @@
 </head>
 <body>
     <div id="app">
-        <h1>{{deckName}}</h1>
+        <!-- this method will give flicker of curly braces
+        <h1>{{deckName}}</h1> -->
+        <h1 v-text="deckName"></h1>
         <div class="card">
-            <h2>item</h2>
-            <div>Description</div>
+            <h2 v-text="cards[0].front"></h2>
+            <div v-html="cards[0].back"></div>
         </div>
     </div>
     <script src="data.js"></script>
@@ -20,7 +22,8 @@
         const FlashCardApp = {
             data() {
                 return {
-                    deckName: 'Vue.js Fundamentals'
+                    deckName: 'Vue.js Fundamentals',
+                    cards
                 }
             }
         }
