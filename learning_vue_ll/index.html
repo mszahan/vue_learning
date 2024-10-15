@@ -12,8 +12,8 @@
         <h1>{{deckName}}</h1> -->
         <h1 v-text="deckName"></h1>
         <div class="card">
-            <h2 v-text="cards[0].front"></h2>
-            <div v-html="cards[0].back"></div>
+            <h2 v-text="flipped? '' : cards[0].front"></h2>
+            <div v-html="flipped? cards[0].back : '' "></div>
         </div>
     </div>
     <script src="data.js"></script>
@@ -23,11 +23,12 @@
             data() {
                 return {
                     deckName: 'Vue.js Fundamentals',
-                    cards
+                    cards,
+                    flipped: false
                 }
             }
         }
-        Vue.createApp(FlashCardApp).mount('#app')
+        const app = Vue.createApp(FlashCardApp).mount('#app')
     </script>
 </body>
 </html>
