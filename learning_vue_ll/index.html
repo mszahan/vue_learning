@@ -15,10 +15,12 @@
         <div class="input">
             type something:
             <input type="text" v-model="userInput">
+            <p v-text="userInput"></p>
         </div>
-        <div class="card">
-            <h2 v-text="userInput == 'flip' ? '' : cards[0].front"></h2>
-            <div v-html="userInput == 'flip' ? cards[0].back : '' "></div>
+        <!-- v-on:<event> is main and @ is the shorthand -->
+        <div v-on:click="flipped = !flipped" class="card" >
+            <h2 v-text="flipped ? '' : cards[0].front"></h2>
+            <div v-html="flipped ? cards[0].back : '' "></div>
         </div>
         <!-- this is the non-shortcut one
         <a v-bind:href="readMoreUrl">read more</a> -->
