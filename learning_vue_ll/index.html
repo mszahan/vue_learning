@@ -42,9 +42,31 @@
                 <textarea name="description" id="description" v-model="formDescription"></textarea>
                 ({{200 - formDescription.length}} characters sleft)
             </div>
+            <div class="options">
+                <!-- you can assign the true and false value for checkbox -->
+                <!-- <div>
+                    <input v-model="reverse" true-value="on" false-value="off" type="checkbox" name="reverse" id="reverse">
+                    <label for="reverse">Include reverse cards</label>
+                </div> -->
+                <div>
+                    <input v-model="options" type="checkbox" name="reverse" id="reverse" value="reverse">
+                    <label for="reverse">Include reverse cards</label>
+                </div>
+                <div>
+                    <input v-model="options" type="checkbox" name="time_limit" id="time_limit" value="time_limit">
+                    <label for="time_limit">Enable time limit</label>
+                </div>
+                <div>
+                    <input v-model="options" type="checkbox" name="reminders" id="reminders" value="reminders">
+                    <label for="reminders">Enable reminders </label>
+                </div>
+                <div>
+                    selected options: <strong>{{ options }}</strong>
+                </div>
+            </div>
             <button type="submit">Create</button>
         </form>
-    </div>s
+    </div>
     <script src="data.js"></script>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script>
@@ -58,7 +80,9 @@
                     userInput: 'default',
                     index: 0,
                     formName: 'Vue form',
-                    formDescription: 'here goes the description'
+                    formDescription: 'here goes the description',
+                    reverse: false,
+                    options: []
                 }
             },
 
