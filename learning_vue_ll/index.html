@@ -29,7 +29,22 @@
         <!-- this is the non-shortcut one
         <a v-bind:href="readMoreUrl">read more</a> -->
         <a :href="readMoreUrl">read more</a>
-    </div>
+
+        <h1>Form handling</h1>
+
+        <form action="" method="post">
+            <div>
+                <label for="name">Name: </label>
+                <input type="text" id="name" name="name" v-model="formName">
+            </div>
+            <div>
+                <label for="description">Description:</label>
+                <textarea name="description" id="description" v-model="formDescription"></textarea>
+                ({{200 - formDescription.length}} characters sleft)
+            </div>
+            <button type="submit">Create</button>
+        </form>
+    </div>s
     <script src="data.js"></script>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script>
@@ -41,7 +56,9 @@
                     flipped: false,
                     readMoreUrl: 'https://loopersit.com',
                     userInput: 'default',
-                    index: 0
+                    index: 0,
+                    formName: 'Vue form',
+                    formDescription: 'here goes the description'
                 }
             },
 
