@@ -11,10 +11,18 @@
         <!-- this method will give flicker of curly braces
         <h1>{{deckName}}</h1> -->
         <h1 v-text="deckName"></h1>
-        <div class="card">
-            <h2 v-text="flipped ? '' : cards[0].front"></h2>
-            <div v-html="flipped ? cards[0].back : '' "></div>
+
+        <div class="input">
+            type something:
+            <input type="text" v-model="userInput">
         </div>
+        <div class="card">
+            <h2 v-text="userInput == 'flip' ? '' : cards[0].front"></h2>
+            <div v-html="userInput == 'flip' ? cards[0].back : '' "></div>
+        </div>
+        <!-- this is the non-shortcut one
+        <a v-bind:href="readMoreUrl">read more</a> -->
+        <a :href="readMoreUrl">read more</a>
     </div>
     <script src="data.js"></script>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
@@ -24,7 +32,9 @@
                 return {
                     deckName: 'Vue.js Fundamentals',
                     cards,
-                    flipped: false
+                    flipped: false,
+                    readMoreUrl: 'https://loopersit.com',
+                    userInput: 'default'
                 }
             }
         }
