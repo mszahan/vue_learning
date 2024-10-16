@@ -100,6 +100,14 @@
             </div>
             <button @click.prevent="submit" type="submit">Create</button>
         </form>
+
+        <h1>Card Manager</h1>
+        <div class="card-manager">
+            <div v-for="card in cards" class="card-pair">
+                <div class="card front" v-text="card.front"></div>
+                <div class="card" v-html="card.back"></div>
+            </div>
+        </div>
     </div>
     <script src="data.js"></script>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>

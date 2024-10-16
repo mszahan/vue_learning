@@ -9,3 +9,16 @@
     border-radius: 10px;
     margin-block: 5px;
 }
+
+.card-manager {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+
+}
+
+.front {
+    background-color: rgb(14, 121, 121);
+    color: white;
+}
