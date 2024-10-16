@@ -40,7 +40,7 @@
             <div>
                 <label for="description">Description:</label>
                 <textarea name="description" id="description" v-model="formDescription"></textarea>
-                ({{200 - formDescription.length}} characters sleft)
+                ({{charLeft}} characters sleft)
             </div>
             <div class="options">
                 <!-- you can assign the true and false value for checkbox -->
@@ -111,6 +111,12 @@
                     options: [],
                     leech: 'tag',
                     categoryID: ''
+                }
+            },
+
+            computed: {
+                charLeft() {
+                    return 200 - this.formDescription.length
                 }
             },
 
