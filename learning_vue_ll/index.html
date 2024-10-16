@@ -102,7 +102,12 @@
         </form>
 
         <h1>Card Manager</h1>
-        <div class="card-manager">
+        <div class="font-buttons" :style="textSizeControlStyle">
+            <button class="font" @click="fontSize++">A+</button>
+            <button class="font" @click="fontSize--">A-</button>
+        </div>
+
+        <div class="card-manager" :style="{'font-size': fontSize + 'px'}">
             <div v-for="(card, index) in cards" class="card-pair">
                 <div v-if="editIndex == index" class="card front">
                     <textarea @keydown.enter="editIndex = -1" name="front" id="front" v-model="card.front"></textarea>
@@ -130,7 +135,12 @@
                     options: [],
                     leech: 'tag',
                     categoryID: '',
-                    editIndex: -1
+                    editIndex: -1,
+                    fontSize: 16,
+                    textSizeControlStyle: {
+                        // textAlign: 'center',
+                        cursor: 'pointer'
+                    }
                 }
             },
 
