@@ -43,7 +43,10 @@
         </div>
         <!-- this is the non-shortcut one
         <a v-bind:href="readMoreUrl">read more</a> -->
-        <a :href="readMoreUrl">read more</a>
+        
+        <!-- <a :href="readMoreUrl">read more</a> -->
+         <!-- creating a component in html for vue  -->
+        <read-more></read-more>
 
         <h1>Form handling</h1>
 
@@ -195,7 +198,13 @@
                 }
             }
         }
-        const app = Vue.createApp(FlashCardApp).mount('#app')
+        const app = Vue.createApp(FlashCardApp)
+        app.component('read-more', {
+            template: '<a href="https://loopersit.com">read more</a>',
+            name: 'Read more'
+        })
+        app.mount('#app')
+
     </script>
 </body>
 </html>
