@@ -46,7 +46,9 @@
         
         <!-- <a :href="readMoreUrl">read more</a> -->
          <!-- creating a component in html for vue  -->
-        <read-more></read-more>
+        <read-more url="https://loopersit.com"></read-more>
+        <br>
+        <read-more :url="readMoreUrl"></read-more>
 
         <h1>Form handling</h1>
 
@@ -200,8 +202,9 @@
         }
         const app = Vue.createApp(FlashCardApp)
         app.component('read-more', {
-            template: '<a href="https://loopersit.com">read more</a>',
-            name: 'Read more'
+            template: '<a :href="url">read more</a>',
+            name: 'Read more',
+            props: ['url']
         })
         app.mount('#app')
 
