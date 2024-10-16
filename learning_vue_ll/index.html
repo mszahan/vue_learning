@@ -90,7 +90,7 @@
                     <option value="6">Programming</option>
                 </select>
             </div>
-            <button type="submit">Create</button>
+            <button @click.prevent="submit" type="submit">Create</button>
         </form>
     </div>
     <script src="data.js"></script>
@@ -120,6 +120,9 @@
                         this.index += change;
                         this.flipped = false;
                     }
+                },
+                submit() {
+                    alert('Sumitting the form')
                 }
             }
         }
