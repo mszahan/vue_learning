@@ -22,6 +22,10 @@
             <h2 v-text="flipped ? '' : cards[index].front"></h2>
             <div v-html="flipped ? cards[index].back : '' "></div>
         </div> -->
+        <!-- <div v-on:click="flipped = !flipped" class="card" >
+            <h2 v-cloak v-show="!flipped">{{front}}</h2>
+            <div v-show="flipped" v-html="back"></div>
+        </div> -->
         <div v-on:click="flipped = !flipped" class="card" >
             <h2 v-if="!flipped" v-text="front"></h2>
             <div v-else v-html="back"></div>
