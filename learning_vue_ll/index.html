@@ -18,9 +18,13 @@
             <p v-text="userInput"></p>
         </div>
         <!-- v-on:<event> is main and @ is the shorthand -->
-        <div v-on:click="flipped = !flipped" class="card" >
+        <!-- <div v-on:click="flipped = !flipped" class="card" >
             <h2 v-text="flipped ? '' : cards[index].front"></h2>
             <div v-html="flipped ? cards[index].back : '' "></div>
+        </div> -->
+        <div v-on:click="flipped = !flipped" class="card" >
+            <h2 v-if="!flipped" v-text="front"></h2>
+            <div v-else v-html="back"></div>
         </div>
         <div>
             <button @click="move(-1)" type="button">&#8592</button>
@@ -117,7 +121,14 @@
             computed: {
                 charLeft() {
                     return 200 - this.formDescription.length
+                },
+                front() {
+                    return this.cards[this.index].front
+                },
+                back() {
+                    return this.cards[this.index].back
                 }
+
             },
 
             methods:{
